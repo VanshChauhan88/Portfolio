@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal - Portfolio</title>
+    <link rel="stylesheet" href="journal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Portfolio.</div>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="p5.html">p5.js</a>
+            <a href="journal.html">Journal</a>
+            <a href="poetry.html">Poetry</a>
+        </div>
+    </nav>
+
+    <!-- Journal Section -->
+    <section class="portfolio-section page-content">
+        <h2 class="section-title">Journal Entries</h2>
+        
+        <!-- Grid of 8 Weeks -->
+        <div class="journal-grid">
+            
+            <div class="card">
+                <h3>Week 1</h3>
+                <p class="date">The Beginning</p>
+                <div class="card-content">
+                    <p>Initial research and ideation phase. Exploring the boundaries of digital interaction and finding inspiration in vintage aesthetics and noir elements. Setting up the foundations of the project.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Week 2</h3>
+                <p class="date">Weekly Watch</p>
+                <div class="card-content">
+                    <p>watched movie : Bridge to Terabithia, The movie highlights how creativity and imagination are not just forms of escape, but powerful tools for coping with real-world struggles, building confidence, and finding inner strength.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Week 3</h3>
+                <p class="date">Trekking</p>
+                <div class="card-content">
+                    <p>Went on a trip to Bhadraj Temple with a Friend , and the whole journey was amazing and the trekking was more fun 
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Week 4</h3>
+                <p class="date">Coding the Grid</p>
+                <div class="card-content">
+                    <p>Integrating p5.js sketches into the site. Getting generative art to render correctly within an iframe without breaking the scroll behavior.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Week 5</h3>
+                <p class="date">Weekly Read</p>
+                <div class="card-content">
+                    <p>Readed a Book name <b>'Metamorphosis'</b> The novella drops a bizarre, inexplicable event (waking up as a giant insect) into an otherwise ordinary, mundane setting. It reflects the existential view that life can be chaotic, unfair, and fundamentally absurd, forcing us to navigate circumstances entirely out of our control.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Week 6</h3>
+                <p class="date">Weekly listen 'on Loop'</p>
+                <div class="card-content">
+                    <p>Apni Dhun Mei Rehta Hoon by <b>'Ghulam Ali Sahab'</b> 
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Week 7</h3>
+                <p class="date">__</p>
+                <div class="card-content">
+                    <p>To be written
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Week 8</h3>
+                <p class="date">__</p>
+                <div class="card-content">
+                    <p>To be written
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© Designed & Coded by Me</p>
+    </footer>
+
+    <!-- Full Screen Modal Overlay -->
+    <div id="journal-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="modal-title">Week Title</h3>
+            <p id="modal-date" class="date">Date</p>
+            <div id="modal-text">Content goes here...</div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Clickable Boxes -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cards = document.querySelectorAll('.card');
+            const modal = document.getElementById('journal-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDate = document.getElementById('modal-date');
+            const modalText = document.getElementById('modal-text');
+            const closeBtn = document.querySelector('.close-btn');
+
+            // Open modal when a card is clicked
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    // Extract text from the clicked card
+                    const title = card.querySelector('h3').innerText;
+                    const date = card.querySelector('.date').innerText;
+                    const content = card.querySelector('.card-content').innerHTML;
+
+                    // Populate the modal
+                    modalTitle.innerText = title;
+                    modalDate.innerText = date;
+                    modalText.innerHTML = content;
+
+                    // Show the modal
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Prevents background scrolling
+                });
+            });
+
+            // Close modal when X is clicked
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Restores background scrolling
+            });
+
+            // Close modal when clicking outside the content box
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

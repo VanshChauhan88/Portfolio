@@ -1,0 +1,67 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; color: #333; background-color: #FAFAFA; display: flex; flex-direction: column; min-height: 100vh; }
+h2 { font-family: 'Playfair Display', serif; }
+
+/* Navigation */
+.navbar { position: fixed; top: 0; width: 100%; padding: 20px 40px; background: rgba(255, 255, 255, 0.95); display: flex; justify-content: space-between; align-items: center; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.logo { font-size: 1.5rem; font-weight: 600; letter-spacing: 1px; }
+.nav-links { display: flex; gap: 20px; padding-right: 80px; }
+.nav-links a { text-decoration: none; color: #333; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; padding: 8px 15px; border-radius: 20px; transition: all 0.3s ease; }
+.nav-links a:hover { background-color: #333; color: #fff; }
+
+/* Home Section Styles */
+.portfolio-section { padding: 100px 10%; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.page-content { padding-top: 150px; }
+
+/* Flexbox Layout for Text and Image */
+.about-container { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 60px; /* Space between text and image */
+    max-width: 1200px; /* Keeps the content from stretching too far on wide screens */
+    margin: 0 auto; 
+}
+
+/* Left side text */
+.about-text { 
+    flex: 1; 
+}
+.about-text h2 { font-size: 3rem; margin-bottom: 1.5rem; }
+.about-text p { font-size: 1.2rem; max-width: 800px; line-height: 1.8; }
+
+/* Right side image */
+.about-visual {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 400px; /* Controls the maximum size of the image */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.intro-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px; /* Smooth rounded corners */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15); /* Subtle drop shadow to make the image pop */
+    object-fit: cover;
+}
+
+/* Footer */
+footer { text-align: center; padding: 30px; background: #222; color: #fff; margin-top: auto; }
+
+/* Responsive adjustments for mobile and tablets */
+@media (max-width: 900px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-visual {
+        justify-content: center;
+        margin-top: 40px;
+    }
+    .about-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
